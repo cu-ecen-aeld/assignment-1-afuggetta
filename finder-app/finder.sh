@@ -25,7 +25,7 @@ fi
 FILENUMBER=0
 MATCHNUMBER=0
 for FILE in "$WRITEDIR"/*; do
-    if [ -f "$FILE" ] then
+    if [ -f "$FILE" ]; then
         FILENUMBER=$((FILENUMBER + 1))
         MATCHNUMBER=$(grep -o "$WRITESTR" "$FILE" | wc -l)
     fi
