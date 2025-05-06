@@ -17,11 +17,8 @@ WRITESTR=$2
 DIRPATH=$(dirname "$FILEPATH")
 
 # Directory in $1 has to exist
-if [ -d "$DIRPATH" ]; then
-    echo "$DIRPATH created"
-else
-    echo "Error: Could not create $DIRPATH!"
-    exit 1
+if [ ! -d "$DIRPATH" ]; then
+    mkdir -p "$DIRPATH"
 fi
 
 echo "$WRITESTR" >> "$FILEPATH"
