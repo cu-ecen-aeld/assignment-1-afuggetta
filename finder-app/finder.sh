@@ -27,7 +27,8 @@ MATCHNUMBER=0
 for FILE in "$WRITEDIR"/*; do
     if [ -f "$FILE" ]; then
         FILENUMBER=$((FILENUMBER + 1))
-        MATCHNUMBER=$(grep -o "$WRITESTR" "$FILE" | wc -l)
+        TEMPMATCHNUMBER=$(grep -o "$WRITESTR" "$FILE" | wc -l)
+        MATCHNUMBER=$((MATCHNUMBER + $TEMPMATCHNUMBER))
     fi
 done
 
